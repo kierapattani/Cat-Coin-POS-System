@@ -1,0 +1,133 @@
+:root {
+  /* Pastel Colors */
+  --pink-soft: #FFD6E8;
+  --pink-medium: #FFB5D6;
+  --pink-dark: #FF9CC5;
+  --blue-soft: #D6E8FF;
+  --blue-medium: #B5D6FF;
+  --purple-soft: #E8D6FF;
+  --purple-medium: #D6B5FF;
+  --cream: #FFF8F0;
+  --cream-dark: #FFE8D6;
+  --mint: #D6FFE8;
+  --peach: #FFE8D6;
+  --lavender: #E8D6FF;
+
+  /* Semantic Colors */
+  --bg-primary: #FFF8F0;
+  --bg-secondary: #FFE8D6;
+  --bg-card: #FFFFFF;
+  --text-primary: #5A4A6A;
+  --text-secondary: #8A7A9A;
+  --border: #FFD6E8;
+  --shadow: rgba(90, 74, 106, 0.1);
+  --shadow-hover: rgba(90, 74, 106, 0.15);
+
+  /* Fonts */
+  --font-primary: 'Comfortaa', cursive;
+  --font-secondary: 'Quicksand', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background: linear-gradient(135deg, var(--cream) 0%, var(--blue-soft) 100%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cream);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pink-medium);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pink-dark);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}

@@ -1,0 +1,77 @@
+.cat-character-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-character {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.cat-face {
+  font-size: 64px;
+  font-family: monospace;
+  filter: drop-shadow(0 4px 10px rgba(255, 182, 193, 0.3));
+  user-select: none;
+}
+
+.cat-character.happy .cat-face {
+  animation: bounce 0.5s ease-in-out;
+}
+
+.cat-character.worried .cat-face {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.cat-character.sleeping .cat-face {
+  opacity: 0.7;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.cat-speech-bubble {
+  background: linear-gradient(135deg, var(--pink-soft), var(--purple-soft));
+  color: var(--text-primary);
+  padding: 12px 20px;
+  border-radius: 20px;
+  font-family: var(--font-primary);
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 15px var(--shadow);
+  position: relative;
+  max-width: 200px;
+  text-align: center;
+}
+
+.cat-speech-bubble::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--pink-soft);
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-10deg); }
+  75% { transform: rotate(10deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}

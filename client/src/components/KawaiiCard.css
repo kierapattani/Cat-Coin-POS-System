@@ -1,0 +1,17 @@
+.kawaii-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px var(--shadow);
+  border: 2px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.kawaii-card.hoverable {
+  cursor: pointer;
+}
+
+.kawaii-card.hoverable:hover {
+  box-shadow: 0 8px 25px var(--shadow-hover);
+  border-color: var(--pink-medium);
+}
