@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import CatPawAnimation from './components/CatPawAnimation';
 import Notification from './components/Notification';
 import { ShoppingCart, Package, BarChart3 } from 'lucide-react';
+import { BASE_PATH } from './config';
 import './App.css';
 
 function Navigation() {
@@ -38,8 +39,11 @@ function Navigation() {
 }
 
 function App() {
+  // Remove trailing slash for basename
+  const basename = BASE_PATH.endsWith('/') ? BASE_PATH.slice(0, -1) : BASE_PATH;
+
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="app">
         <Navigation />
         <main className="main-content">
