@@ -36,6 +36,11 @@ interface AppState {
   setShowPaymentAnimation: (show: boolean) => void;
   currentView: 'pos' | 'inventory' | 'dashboard';
   setCurrentView: (view: 'pos' | 'inventory' | 'dashboard') => void;
+
+  // Notifications
+  notification: { message: string; type: 'success' | 'error' | 'info' } | null;
+  showNotification: (message: string, type?: 'success' | 'error' | 'info') => void;
+  hideNotification: () => void;
 }
 
 export const useStore = create<AppState>((set) => ({
@@ -99,4 +104,9 @@ export const useStore = create<AppState>((set) => ({
   setShowPaymentAnimation: (show) => set({ showPaymentAnimation: show }),
   currentView: 'pos',
   setCurrentView: (view) => set({ currentView: view }),
+
+  // Notifications
+  notification: null,
+  showNotification: (message, type = 'success') => set({ notification: { message, type } }),
+  hideNotification: () => set({ notification: null }),
 }));

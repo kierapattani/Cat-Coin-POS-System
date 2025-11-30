@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { ReactNode, ButtonHTMLAttributes } from 'react';
 import './KawaiiButton.css';
 
-interface KawaiiButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface KawaiiButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'onAnimationStart' | 'onAnimationIteration' | 'onAnimationEnd' | 'onDragStart' | 'onDrag' | 'onDragEnd'> {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'success' | 'danger';
   size?: 'small' | 'medium' | 'large';

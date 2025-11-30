@@ -10,7 +10,7 @@ import { Plus, Edit2, Trash2, AlertTriangle } from 'lucide-react';
 import './Inventory.css';
 
 export default function Inventory() {
-  const { products, setProducts, setCatMood } = useStore();
+  const { products, setProducts, setCatMood, showNotification } = useStore();
   const [showForm, setShowForm] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [lowStockProducts, setLowStockProducts] = useState<Product[]>([]);
@@ -65,8 +65,10 @@ export default function Inventory() {
     try {
       if (editingProduct && editingProduct.id) {
         await api.updateProduct(editingProduct.id, productData);
+        showNotification(`Updated ${productData.name} successfully!`, 'success');
       } else {
         await api.createProduct(productData);
+        showNotification(`Added ${productData.name} to inventory!`, 'success');
       }
 
       loadProducts();
@@ -74,6 +76,7 @@ export default function Inventory() {
       resetForm();
     } catch (error) {
       console.error('Failed to save product:', error);
+      showNotification('Failed to save product', 'error');
     }
   };
 
@@ -90,13 +93,16 @@ export default function Inventory() {
   };
 
   const handleDelete = async (id: number) => {
+    const product = products.find(p => p.id === id);
     if (confirm('Are you sure you want to delete this product?')) {
       try {
         await api.deleteProduct(id);
+        showNotification(`Deleted ${product?.name || 'product'} from inventory`, 'info');
         loadProducts();
         checkLowStock();
       } catch (error) {
         console.error('Failed to delete product:', error);
+        showNotification('Failed to delete product', 'error');
       }
     }
   };
