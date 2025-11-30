@@ -15,6 +15,12 @@
   box-shadow: 0 4px 15px var(--shadow);
 }
 
+.pos-title {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .pos-title h1 {
   font-size: 36px;
   margin-bottom: 10px;
@@ -33,6 +39,33 @@
 .treat-emoji {
   font-size: 24px;
   animation: bounce 2s ease-in-out infinite;
+}
+
+.xreport-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, var(--blue-medium), var(--blue-soft));
+  border: none;
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px var(--shadow);
+}
+
+.xreport-btn:hover {
+  background: linear-gradient(135deg, #99C4FF, var(--blue-medium));
+  box-shadow: 0 6px 20px var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.xreport-btn:active {
+  transform: translateY(0);
 }
 
 .pos-content {

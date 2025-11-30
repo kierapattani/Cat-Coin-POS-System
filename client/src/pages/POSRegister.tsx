@@ -4,7 +4,8 @@ import { api } from '../utils/api';
 import KawaiiCard from '../components/KawaiiCard';
 import KawaiiButton from '../components/KawaiiButton';
 import CatCharacter from '../components/CatCharacter';
-import { ShoppingCart, Plus, Minus, Trash2, CreditCard, DollarSign } from 'lucide-react';
+import XReport from '../components/XReport';
+import { ShoppingCart, Plus, Minus, Trash2, CreditCard, DollarSign, FileText } from 'lucide-react';
 import './POSRegister.css';
 
 const TAX_RATE = 0.08;
@@ -14,6 +15,7 @@ export default function POSRegister() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [paymentMethod, setPaymentMethod] = useState<'cash' | 'card'>('card');
   const [isProcessing, setIsProcessing] = useState(false);
+  const [showXReport, setShowXReport] = useState(false);
 
   useEffect(() => {
     loadProducts();
@@ -95,9 +97,14 @@ export default function POSRegister() {
             <span className="treat-emoji">🍪</span>
             <span className="treat-count">{todayStats?.treats_eaten || 0} treats eaten today</span>
           </div>
+          <button className="xreport-btn" onClick={() => setShowXReport(true)}>
+            <FileText size={20} />
+            <span>X-REPORT</span>
+          </button>
         </div>
         <CatCharacter />
       </div>
+      <XReport isOpen={showXReport} onClose={() => setShowXReport(false)} />
 
       <div className="pos-content">
         <div className="products-section">
