@@ -27,6 +27,18 @@ npm run build
 
 Production builds use IndexedDB (no backend required).
 
+### Preview Production Build
+
+```bash
+cd client && npm run preview
+```
+
+Open http://localhost:4173 to test the production build locally.
+
+### Deploy
+
+Upload the contents of `client/dist/` to your web server's public directory. The app will work on any static hosting (shared hosting, Netlify, Vercel, GitHub Pages, etc.) since it uses IndexedDB for storage.
+
 ## Usage
 
 **POS**: Select products, adjust quantities, choose payment method, and complete payment to trigger the cat paw animation.

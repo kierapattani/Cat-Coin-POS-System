@@ -4,6 +4,7 @@ import POSRegister from './pages/POSRegister';
 import Inventory from './pages/Inventory';
 import Dashboard from './pages/Dashboard';
 import CatPawAnimation from './components/CatPawAnimation';
+import Notification from './components/Notification';
 import { ShoppingCart, Package, BarChart3 } from 'lucide-react';
 import './App.css';
 
@@ -49,6 +50,7 @@ function App() {
           </Routes>
         </main>
         <CatPawAnimation />
+        <Notification />
         <div className="paw-prints">
           {[...Array(10)].map((_, i) => (
             <motion.div
